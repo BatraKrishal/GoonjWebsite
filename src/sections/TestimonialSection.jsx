@@ -68,16 +68,16 @@ const TestimonialSection = () => {
   return (
     <section className="testimonials-section">
       <div className="absolute size-full flex flex-col items-center pt-[5vw]">
-        <h1 className="text-black first-title">What's</h1>
-        <h1 className="text-light-brown sec-title">Everyone</h1>
-        <h1 className="text-black third-title">Talking</h1>
+        <h1 className="text-goonj-dark-teal first-title font-serif italic">Highlights</h1>
+        <h1 className="text-goonj-cyan sec-title">of</h1>
+        <h1 className="text-goonj-dark-teal third-title font-serif italic">Goonj '26</h1>
       </div>
 
       <div className="pin-box">
         {cards.map((card, index) => (
           <div
             key={index}
-            className={`vd-card ${card.translation} ${card.rotation}`}
+            className={`vd-card magnetic-target cursor-none ${card.translation} ${card.rotation}`}
             onMouseEnter={() => handlePlay(index)}
             onMouseLeave={() => handlePause(index)}
           >

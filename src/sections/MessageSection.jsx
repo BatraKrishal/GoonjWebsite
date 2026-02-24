@@ -16,7 +16,7 @@ const MessageSection = () => {
     });
 
     gsap.to(firstMsgSplit.words, {
-      color: "#faeade",
+      color: "var(--color-goonj-light-teal)",
       ease: "power1.in",
       stagger: 1,
       scrollTrigger: {
@@ -27,7 +27,7 @@ const MessageSection = () => {
       },
     });
     gsap.to(secMsgSplit.words, {
-      color: "#faeade",
+      color: "var(--color-goonj-light-teal)",
       ease: "power1.in",
       stagger: 1,
       scrollTrigger: {
@@ -71,7 +71,7 @@ const MessageSection = () => {
       <div className="container mx-auto flex-center py-28 relative">
         <div className="w-full h-full">
           <div className="msg-wrapper">
-            <h1 className="first-message">Stir up your fearless past and</h1>
+            <h1 className="first-message font-serif italic text-white/20">Elevate the soul with tradition and</h1>
 
             <div
               style={{
@@ -79,22 +79,20 @@ const MessageSection = () => {
               }}
               className="msg-text-scroll"
             >
-              <div className="bg-light-brown md:pb-5 pb-3 px-5">
-                <h2 className="text-red-brown">Fuel Up</h2>
+              <div className="bg-goonj-cyan md:pb-5 pb-3 px-10">
+                <h2 className="text-white">NexGen</h2>
               </div>
             </div>
 
-            <h1 className="second-message">
-              your future with every gulp of Perfect Protein
+            <h1 className="second-message font-serif italic text-white/20">
+              engineer the sound of tomorrow
             </h1>
           </div>
 
           <div className="flex-center md:mt-20 mt-10">
-            <div className="max-w-md px-10 flex-center overflow-hidden">
-              <p>
-                Rev up your rebel spirit and feed the adventure of life with
-                SPYLT, where you’re one chug away from epic nostalgia and
-                fearless fun.
+            <div className="max-w-2xl px-10 flex-center overflow-hidden">
+              <p className="text-xl leading-relaxed">
+                NexGen Raga is a tribute to the timeless melodies of our heritage, powered by the boundless curiosity of the engineering spirit. It's where the sitar's resonance meets the precision of algorithms.
               </p>
             </div>
           </div>

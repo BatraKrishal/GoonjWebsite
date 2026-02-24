@@ -20,14 +20,14 @@ const FlavorSlider = () => {
           trigger: ".flavor-section",
           start: "2% top",
           end: `+=${scrollAmount + 1500}px`,
-          scrub: true,
+          scrub: 1.5, // Smooth scrubbing
           pin: true,
         },
       });
 
       tl.to(".flavor-section", {
         x: `-${scrollAmount + 1500}px`,
-        ease: "power1.inOut",
+        ease: "none",
       });
     }
 
@@ -36,20 +36,20 @@ const FlavorSlider = () => {
         trigger: ".flavor-section",
         start: "top top",
         end: "bottom 80%",
-        scrub: true,
+        scrub: 1.5,
       },
     });
 
     titleTl
       .to(".first-text-split", {
         xPercent: -30,
-        ease: "power1.inOut",
+        ease: "power2.out",
       })
       .to(
         ".flavor-text-scroll",
         {
           xPercent: -22,
-          ease: "power1.inOut",
+          ease: "power2.out",
         },
         "<"
       )
@@ -57,7 +57,7 @@ const FlavorSlider = () => {
         ".second-text-split",
         {
           xPercent: -10,
-          ease: "power1.inOut",
+          ease: "power2.out",
         },
         "<"
       );
@@ -69,7 +69,7 @@ const FlavorSlider = () => {
         {flavorlists.map((flavor) => (
           <div
             key={flavor.name}
-            className={`relative z-30 lg:w-[50vw] w-96 lg:h-[70vh] md:w-[90vw] md:h-[50vh] h-80 flex-none ${flavor.rotation}`}
+            className={`relative z-30 lg:w-[50vw] w-96 lg:h-[70vh] md:w-[90vw] md:h-[50vh] h-80 flex-none magnetic-target cursor-none ${flavor.rotation}`}
           >
             <img
               src={`/images/${flavor.color}-bg.svg`}

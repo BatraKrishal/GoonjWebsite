@@ -9,19 +9,22 @@ import NutritionSection from "./sections/NutritionSection";
 import BenefitSection from "./sections/BenefitSection";
 import TestimonialSection from "./sections/TestimonialSection";
 import FooterSection from "./sections/FooterSection";
+import CustomCursor from "./components/CustomCursor";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const App = () => {
   useGSAP(() => {
     ScrollSmoother.create({
-      smooth: 3,
+      smooth: 1.5,
       effects: true,
+      smoothTouch: 0.1,
     });
   });
 
   return (
-    <main>
+    <main className="cursor-none">
+      <CustomCursor />
       <NavBar />
       <div id="smooth-wrapper">
         <div id="smooth-content">

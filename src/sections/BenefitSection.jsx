@@ -46,44 +46,44 @@ const BenefitSection = () => {
     <section className="benefit-section">
       <div className="container mx-auto pt-20">
         <div className="col-center">
-          <p>
-            Unlock the Advantages: <br />
-            Explore the Key Benefits of Choosing SPYLT
+          <p className="font-serif italic text-2xl">
+            Why Goonj '26? <br />
+            Experience the fusion of heritage and horizon.
           </p>
 
           <div className="mt-20 col-center">
             <ClipPathTitle
-              title={"Shelf stable"}
-              color={"#faeade"}
-              bg={"#c88e64"}
-              className={"first-title"}
-              borderColor={"#222123"}
+              title={"Eternal Ragas"}
+              color={"white"}
+              bg={"var(--color-goonj-teal)"}
+              className={"first-title magnetic-target cursor-none"}
+              borderColor={"white"}
             />
             <ClipPathTitle
-              title={"Protein + Caffeine"}
-              color={"#222123"}
-              bg={"#faeade"}
-              className={"second-title"}
-              borderColor={"#222123"}
+              title={"NextGen Tech"}
+              color={"var(--color-goonj-dark-teal)"}
+              bg={"var(--color-goonj-light-teal)"}
+              className={"second-title magnetic-target cursor-none"}
+              borderColor={"var(--color-goonj-dark-teal)"}
             />
             <ClipPathTitle
-              title={"Infinitely recyclable"}
-              color={"#faeade"}
-              bg={"#7F3B2D"}
-              className={"third-title"}
-              borderColor={"#222123"}
+              title={"Sustainable Future"}
+              color={"white"}
+              bg={"var(--color-goonj-cyan)"}
+              className={"third-title magnetic-target cursor-none"}
+              borderColor={"white"}
             />
             <ClipPathTitle
-              title={"Lactose free"}
-              color={"#2E2D2F"}
-              bg={"#FED775"}
-              className={"fourth-title"}
-              borderColor={"#222123"}
+              title={"Vibrant Community"}
+              color={"white"}
+              bg={"var(--color-goonj-dark-teal)"}
+              className={"fourth-title magnetic-target cursor-none"}
+              borderColor={"white"}
             />
           </div>
 
           <div className="md:mt-0 mt-10">
-            <p>And much more ...</p>
+            <p className="font-sans opacity-60 italic">And much more to discover ...</p>
           </div>
         </div>
       </div>
