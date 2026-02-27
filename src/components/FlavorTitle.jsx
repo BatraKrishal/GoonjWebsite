@@ -4,30 +4,22 @@ import { SplitText } from "gsap/all";
 
 const FlavorTitle = () => {
   useGSAP(() => {
-    const firstTextSplit = SplitText.create(".first-text-split h1", {
-      type: "chars",
+    const firstTextSplit = SplitText.create(".flavor-line-1", {
+      type: "words",
     });
-    const secondTextSplit = SplitText.create(".second-text-split h1", {
-      type: "chars",
+    const secondTextSplit = SplitText.create(".flavor-line-3", {
+      type: "words",
     });
 
-    // Premium Awwwards typography setup
-    gsap.set([firstTextSplit.chars, secondTextSplit.chars], {
+    gsap.from(firstTextSplit.words, {
       yPercent: 120,
       opacity: 0,
-      rotateX: -40,
-    });
-
-    gsap.to(firstTextSplit.chars, {
-      yPercent: 0,
-      opacity: 1,
-      rotateX: 0,
-      stagger: 0.03,
       duration: 1.2,
       ease: "power4.out",
+      stagger: 0.05,
       scrollTrigger: {
         trigger: ".flavor-section",
-        start: "top 50%",
+        start: "top 70%",
       },
     });
 
@@ -35,45 +27,55 @@ const FlavorTitle = () => {
       duration: 1.5,
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       ease: "expo.out",
+      delay: 0.3,
       scrollTrigger: {
         trigger: ".flavor-section",
-        start: "top 40%",
+        start: "top 60%",
       },
     });
 
-    gsap.to(secondTextSplit.chars, {
-      yPercent: 0,
-      opacity: 1,
-      rotateX: 0,
-      stagger: 0.03,
+    gsap.from(secondTextSplit.words, {
+      yPercent: 120,
+      opacity: 0,
       duration: 1.2,
       ease: "power4.out",
+      stagger: 0.05,
+      delay: 0.2,
       scrollTrigger: {
         trigger: ".flavor-section",
-        start: "top 30%",
+        start: "top 50%",
       },
     });
   });
 
   return (
-    <div className="general-title col-center h-full 2xl:gap-32 xl:gap-24 gap-16 magnetic-target cursor-none hw-accel perspective-[1000px]">
-      <div className="overflow-hidden 2xl:py-0 py-3 first-text-split transform-style-3d">
-        <h1 className="font-serif italic capitalize">Experience the</h1>
+    <div className="h-full flex flex-col justify-center px-8 md:px-12 xl:px-16 gap-4 md:gap-6">
+      {/* EXPERIENCE */}
+      <div className="overflow-hidden first-text-split">
+        <h1 className="flavor-line-1 font-sans font-bold uppercase tracking-tighter text-[12vw] lg:text-[7vw] leading-none text-white/90 whitespace-nowrap">
+          EXPERIENCE
+        </h1>
       </div>
 
+      {/* EVENTS badge */}
       <div
         style={{
           clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
         }}
-        className="flavor-text-scroll transform-style-3d"
+        className="flavor-text-scroll self-start rotate-[-2deg]"
       >
-        <div className="bg-goonj-dark-teal pb-5 2xl:pt-0 pt-3 2xl:px-10 px-5 glass-panel border-none">
-          <h2 className="text-white">Essence</h2>
+        <div className="bg-white border-[3px] border-[#6c2020] py-2 md:py-3 px-6 md:px-10">
+          <h2 className="text-[#6c2020] font-sans uppercase font-bold tracking-tight text-[10vw] lg:text-[5.5vw] leading-none">
+            EVENTS
+          </h2>
         </div>
       </div>
 
-      <div className="overflow-hidden 2xl:py-0 py-3 second-text-split transform-style-3d">
-        <h1 className="font-serif italic capitalize">of Raga</h1>
+      {/* OF TOMMORW */}
+      <div className="overflow-hidden second-text-split">
+        <h1 className="flavor-line-3 font-sans font-bold uppercase tracking-tighter text-[10vw] lg:text-[6vw] leading-none text-white/90 whitespace-nowrap">
+          OF TOMMORW
+        </h1>
       </div>
     </div>
   );

@@ -168,18 +168,10 @@ body::-webkit-scrollbar {
   }
 
   .flavor-section {
-    @apply min-h-dvh bg-main-bg;
+    @apply min-h-dvh;
 
     .flavor-text-scroll {
-      @apply rotate-[-3deg] md:translate-y-5 border-[.5vw] border-white/20 absolute z-10;
-    }
-
-    .first-text-split h1 {
-      @apply md:text-center text-goonj-cyan;
-    }
-
-    .second-text-split h1 {
-      @apply md:text-center;
+      @apply relative z-10;
     }
 
     .slider-wrapper {
@@ -215,7 +207,7 @@ body::-webkit-scrollbar {
     }
 
     .nutrition-text-scroll {
-      @apply rotate-[-3deg] border-[.5vw] border-goonj-cyan text-nowrap opacity-0 md:-mt-32 -mt-24;
+      @apply text-nowrap;
     }
 
     .nutrition-box {
@@ -236,7 +228,7 @@ body::-webkit-scrollbar {
   }
 
   .benefit-section {
-    @apply min-h-dvh bg-main-bg overflow-hidden relative;
+    @apply min-h-dvh overflow-hidden relative;
 
     p {
       @apply text-white font-paragraph text-center text-lg;
@@ -312,10 +304,7 @@ body::-webkit-scrollbar {
   }
 }
 
-.nutrition-section {
-  background-color: #faeade00;
-  background-image: radial-gradient(circle, #f3ece2, #dcccb0);
-}
+
 
 .spin-circle {
   animation: spin 20s linear infinite;

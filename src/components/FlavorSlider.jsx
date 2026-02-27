@@ -20,15 +20,26 @@ const FlavorSlider = () => {
           trigger: ".flavor-section",
           start: "2% top",
           end: `+=${scrollAmount + 1500}px`,
-          scrub: 1.5, // Smooth scrubbing
+          scrub: 1.5,
           pin: true,
         },
       });
 
+      // Scroll the section horizontally
       tl.to(".flavor-section", {
         x: `-${scrollAmount + 1500}px`,
         ease: "none",
       });
+
+      // Counter-translate the background the same amount to keep it visually fixed
+      tl.to(
+        ".flavor-bg-fixed",
+        {
+          x: `${scrollAmount + 1500}px`,
+          ease: "none",
+        },
+        "<"
+      );
     }
 
     const titleTl = gsap.timeline({
@@ -66,32 +77,51 @@ const FlavorSlider = () => {
   return (
     <div ref={sliderRef} className="slider-wrapper">
       <div className="flavors">
-        {flavorlists.map((flavor) => (
-          <div
-            key={flavor.name}
-            className={`relative z-30 lg:w-[50vw] w-96 lg:h-[70vh] md:w-[90vw] md:h-[50vh] h-80 flex-none magnetic-target cursor-none ${flavor.rotation}`}
-          >
-            <img
-              src={`/images/${flavor.color}-bg.svg`}
-              alt=""
-              className="absolute bottom-0"
-            />
+        {flavorlists.map((flavor) => {
+          const isEventCard = flavor.color === "event";
 
-            <img
-              src={`/images/${flavor.color}-drink.webp`}
-              alt=""
-              className="drinks"
-            />
+          return (
+            <div
+              key={flavor.name}
+              className={`relative z-30 lg:w-[50vw] w-96 lg:h-[70vh] md:w-[90vw] md:h-[50vh] h-80 flex-none magnetic-target cursor-none overflow-hidden rounded-2xl ${flavor.rotation}`}
+            >
+              {isEventCard ? (
+                /* Use flavor-bg.png with a dark overlay as the card background */
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: "url('/images/flavor-bg.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <div className="absolute inset-0 bg-black/30" />
+                </div>
+              ) : (
+                <>
+                  <img
+                    src={`/images/${flavor.color}-bg.svg`}
+                    alt=""
+                    className="absolute bottom-0"
+                  />
+                  <img
+                    src={`/images/${flavor.color}-drink.webp`}
+                    alt=""
+                    className="drinks"
+                  />
+                  <img
+                    src={`/images/${flavor.color}-elements.webp`}
+                    alt=""
+                    className="elements"
+                  />
+                </>
+              )}
 
-            <img
-              src={`/images/${flavor.color}-elements.webp`}
-              alt=""
-              className="elements"
-            />
-
-            <h1>{flavor.name}</h1>
-          </div>
-        ))}
+              {/* Event name always visible */}
+              <h1>{flavor.name}</h1>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

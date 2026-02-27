@@ -6,7 +6,7 @@ import VideoPinSection from "../components/VideoPinSection";
 const BenefitSection = () => {
   useGSAP(() => {
     const revealTl = gsap.timeline({
-      delay: 1,
+      delay: 0.5,
       scrollTrigger: {
         trigger: ".benefit-section",
         start: "top 60%",
@@ -43,52 +43,54 @@ const BenefitSection = () => {
   });
 
   return (
-    <section className="benefit-section">
-      <div className="container mx-auto pt-20">
-        <div className="col-center">
-          <p className="font-serif italic text-2xl">
-            Why Goonj '26? <br />
-            Experience the fusion of heritage and horizon.
-          </p>
+    <section className="benefit-section relative">
+      {/* Full-cover background image at z-0 */}
+      <img
+        src="/images/benefit.png"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover -z-0 pointer-events-none"
+      />
 
+      <div className="container mx-auto pt-20 relative z-10">
+        <div className="col-center">
           <div className="mt-20 col-center">
+            {/* ESPORTS — dark green */}
             <ClipPathTitle
-              title={"Eternal Ragas"}
+              title={"ESPORTS"}
               color={"white"}
-              bg={"var(--color-goonj-teal)"}
+              bg={"#1a6b34"}
               className={"first-title magnetic-target cursor-none"}
               borderColor={"white"}
             />
+            {/* TREASURE HUNT — blue */}
             <ClipPathTitle
-              title={"NextGen Tech"}
-              color={"var(--color-goonj-dark-teal)"}
-              bg={"var(--color-goonj-light-teal)"}
-              className={"second-title magnetic-target cursor-none"}
-              borderColor={"var(--color-goonj-dark-teal)"}
-            />
-            <ClipPathTitle
-              title={"Sustainable Future"}
+              title={"TREASURE HUNT"}
               color={"white"}
-              bg={"var(--color-goonj-cyan)"}
+              bg={"#1a3aa8"}
+              className={"second-title magnetic-target cursor-none"}
+              borderColor={"white"}
+            />
+            {/* GRAFFITI, EVENT, EVENT — red */}
+            <ClipPathTitle
+              title={"GRAFFITI, EVENT, EVENT"}
+              color={"white"}
+              bg={"#9a1c1c"}
               className={"third-title magnetic-target cursor-none"}
               borderColor={"white"}
             />
+            {/* AND MUCH MORE... — purple */}
             <ClipPathTitle
-              title={"Vibrant Community"}
+              title={"AND MUCH MORE..."}
               color={"white"}
-              bg={"var(--color-goonj-dark-teal)"}
+              bg={"#5a1a9a"}
               className={"fourth-title magnetic-target cursor-none"}
               borderColor={"white"}
             />
           </div>
-
-          <div className="md:mt-0 mt-10">
-            <p className="font-sans opacity-60 italic">And much more to discover ...</p>
-          </div>
         </div>
       </div>
 
-      <div className="relative overlay-box">
+      <div className="relative overlay-box z-10">
         <VideoPinSection />
       </div>
     </section>

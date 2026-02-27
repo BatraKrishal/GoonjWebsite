@@ -1,42 +1,32 @@
 const flavorlists = [
   {
     name: "Soul of Sitar",
-    color: "teal",
+    color: "event",
     rotation: "md:rotate-[-8deg] rotate-0",
   },
   {
     name: "Rhythm of Tabla",
-    color: "cyan",
+    color: "event",
     rotation: "md:rotate-[8deg] rotate-0",
   },
   {
     name: "Vocal Vibrance",
-    color: "gold",
-    rotation: "md:rotate-[-8deg] rotate-0",
-  },
-  {
-    name: "Dance of Divinity",
-    color: "dark-teal",
-    rotation: "md:rotate-[8deg] rotate-0",
-  },
-  {
-    name: "Melody of Flute",
-    color: "light-teal",
+    color: "event",
     rotation: "md:rotate-[-8deg] rotate-0",
   },
   {
     name: "Fusion Beats",
-    color: "black",
+    color: "event",
     rotation: "md:rotate-[8deg] rotate-0",
   },
 ];
 
 const nutrientLists = [
-  { label: "AI Innovation", amount: "Gen-AI" },
-  { label: "Robotics", amount: "NexGen" },
-  { label: "Sustainable Tech", amount: "Green" },
-  { label: "Digital Art", amount: "NFTs" },
-  { label: "Cyber Security", amount: "Secure" },
+  { label: "Date", amount: "17th-18th", sublabel: "May" },
+  { label: "Theme", amount: "Rhythms of Resistance", sublabel: "Rhythms of" },
+  { label: "stat", amount: "Stat", sublabel: "stat" },
+  { label: "stat", amount: "stat", sublabel: "stat" },
+  { label: "stat", amount: "stat", sublabel: "stat" },
 ];
 
 const cards = [

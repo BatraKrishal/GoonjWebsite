@@ -1,39 +1,23 @@
-import { useMediaQuery } from "react-responsive";
 
 const FooterSection = () => {
-  const isMobile = useMediaQuery({
-    query: "(max-width: 768px)",
-  });
 
   return (
     <section className="footer-section">
-      <img
-        src="/images/footer-dip.png"
-        alt=""
-        className="w-full object-cover -translate-y-1"
-      />
 
       <div className="2xl:h-[110dvh] relative md:pt-[20vh] pt-[10vh]">
-        <div className="overflow-hidden z-10">
+        {/* Background image */}
+        <img
+          src="/images/footer.png"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+        />
+
+        <div className="overflow-hidden z-10 relative">
           <h1 className="general-title text-center text-white py-5">
-            #NEXGENRAGA
+            #GOONJ2K26
           </h1>
         </div>
 
-        {isMobile ? (
-          <img
-            src="/images/footer-icon.png" // Placeholder for Goonj icon
-            className="absolute top-0 object-contain h-64 w-full opacity-20"
-          />
-        ) : (
-          <video
-            src="/videos/tech-flow.mp4" // Placeholder for tech/musical flow
-            autoPlay
-            playsInline
-            muted
-            className="absolute top-0 w-full object-contain mix-blend-lighten opacity-30"
-          />
-        )}
 
         <div className="flex-center gap-5 relative z-10 md:mt-20 mt-5">
           <div className="social-btn border-white/20 hover:bg-white/10">
