@@ -16,7 +16,7 @@ const MessageSection = () => {
     });
 
     gsap.to(firstMsgSplit.words, {
-      color: "#faeade",
+      color: "#523122",
       ease: "power1.in",
       stagger: 1,
       scrollTrigger: {
@@ -27,22 +27,23 @@ const MessageSection = () => {
       },
     });
     gsap.to(secMsgSplit.words, {
-      color: "#faeade",
+      color: "#523122",
       ease: "power1.in",
       stagger: 1,
       scrollTrigger: {
         trigger: ".second-message",
         start: "top center",
-        end: "bottom center",
+        end: "top 40%",
         scrub: true,
       },
     });
 
     const revealTl = gsap.timeline({
-      delay: 1,
+      delay: 0.5,
       scrollTrigger: {
         trigger: ".msg-text-scroll",
         start: "top 60%",
+        toggleActions: "play none none reverse",
       },
     });
     revealTl.to(".msg-text-scroll", {
@@ -67,34 +68,32 @@ const MessageSection = () => {
   });
 
   return (
-    <section className="message-content">
+    <section className="message-content bg-[url('/images/message-bg.png')]  bg-cover bg-top">
       <div className="container mx-auto flex-center py-28 relative">
         <div className="w-full h-full">
           <div className="msg-wrapper">
-            <h1 className="first-message">Stir up your fearless past and</h1>
+            <h1 className="first-message">BEYOND SILENCE!! BEYOND SOUND!!</h1>
 
             <div
               style={{
                 clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
               }}
-              className="msg-text-scroll"
+              className="msg-text-scroll inline-block bg-white p-[2px] "
             >
-              <div className="bg-light-brown md:pb-5 pb-3 px-5">
-                <h2 className="text-red-brown">Fuel Up</h2>
+              <div className="bg-[#2D6A40] md:pb-5 pb-3 px-5">
+                <h2 className="text-[#FFFFFF]">#Get Ready</h2>
               </div>
             </div>
 
             <h1 className="second-message">
-              your future with every gulp of Perfect Protein
+              EXPERIENCE THE ECHO OF FUTURE ENGINEERS
             </h1>
           </div>
 
           <div className="flex-center md:mt-20 mt-10">
-            <div className="max-w-md px-10 flex-center overflow-hidden">
+            <div className="max-w-md px-10  text-white flex-center overflow-hidden">
               <p>
-                Rev up your rebel spirit and feed the adventure of life with
-                SPYLT, where you’re one chug away from epic nostalgia and
-                fearless fun.
+                "Where tradition meets trend and passion meets the stage. Join us as we turn up the volume on creativity and craft memories that will echo for a lifetime."
               </p>
             </div>
           </div>

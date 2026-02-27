@@ -43,46 +43,53 @@ const BenefitSection = () => {
   });
 
   return (
-    <section className="benefit-section">
+    <section className="benefit-section"
+    style={{
+          backgroundImage: "url('/images/benefits-bg.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          width: "100vw",
+        }}
+    >
       <div className="container mx-auto pt-20">
-        <div className="col-center">
+        <div className="col-center text-white">
           <p>
-            Unlock the Advantages: <br />
-            Explore the Key Benefits of Choosing SPYLT
+            Fun Games and Quests <br />
+            Explore what suits you best and win exciting prizes.
           </p>
 
           <div className="mt-20 col-center">
             <ClipPathTitle
-              title={"Shelf stable"}
-              color={"#faeade"}
-              bg={"#c88e64"}
+              title={"E-Sports"}
+              color={"#ffffff"}
+              bg={"#226031"}
               className={"first-title"}
               borderColor={"#222123"}
             />
             <ClipPathTitle
-              title={"Protein + Caffeine"}
-              color={"#222123"}
-              bg={"#faeade"}
+              title={"Treasure Hunt"}
+              color={"#ffffff"}
+              bg={"#0034D0"}
               className={"second-title"}
               borderColor={"#222123"}
             />
             <ClipPathTitle
-              title={"Infinitely recyclable"}
-              color={"#faeade"}
-              bg={"#7F3B2D"}
+              title={"GRAFFITI, EVENT, EVENT"}
+              color={"#ffffff"}
+              bg={"#C22100"}
               className={"third-title"}
               borderColor={"#222123"}
             />
             <ClipPathTitle
-              title={"Lactose free"}
-              color={"#2E2D2F"}
-              bg={"#FED775"}
+              title={"Event, Event"}
+              color={"#FFFFFF"}
+              bg={"#6900CC"}
               className={"fourth-title"}
               borderColor={"#222123"}
             />
           </div>
 
-          <div className="md:mt-0 mt-10">
+          <div className="md:mt-0 mt-10 text-white">
             <p>And much more ...</p>
           </div>
         </div>
