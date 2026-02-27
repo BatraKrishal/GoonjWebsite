@@ -79,7 +79,7 @@ const HeroSection = () => {
           </>
         ) : (
           <video
-            src="/videos/hero-bg.mp4"
+            src="/videos/"
             autoPlay
             muted
             playsInline
@@ -88,7 +88,7 @@ const HeroSection = () => {
         )}
         <div className="hero-content opacity-0">
           <div className="overflow-hidden">
-            <h1 className="hero-title">Freaking Delicious</h1>
+            <h1 className="hero-title">Goonj 2k26</h1>
           </div>
           <div
             style={{
@@ -97,7 +97,7 @@ const HeroSection = () => {
             className="hero-text-scroll"
           >
             <div className="hero-subtitle">
-              <h1>Protein + Caffine </h1>
+              <h1>Indian Maximalism </h1>
             </div>
           </div>
 
