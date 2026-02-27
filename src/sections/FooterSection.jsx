@@ -4,22 +4,21 @@ const FooterSection = () => {
   return (
     <section className="footer-section">
 
-      <div className="2xl:h-[110dvh] relative md:pt-[20vh] pt-[10vh]">
-        {/* Background image */}
+      {/* TOP — footer.png hero area with hashtag + social icons */}
+      <div className="relative h-[55vh] md:h-[70vh] overflow-hidden">
         <img
           src="/images/footer.png"
           alt=""
           className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
         />
 
-        <div className="overflow-hidden z-10 relative">
+        <div className="overflow-hidden z-10 relative md:pt-[15vh] pt-[8vh]">
           <h1 className="general-title text-center text-white py-5">
             #GOONJ2K26
           </h1>
         </div>
 
-
-        <div className="flex-center gap-5 relative z-10 md:mt-20 mt-5">
+        <div className="flex-center gap-5 relative z-10 md:mt-10 mt-5">
           <div className="social-btn border-white/20 hover:bg-white/10">
             <img src="./images/yt.svg" alt="" />
           </div>
@@ -30,8 +29,11 @@ const FooterSection = () => {
             <img src="./images/linkedin.svg" alt="" />
           </div>
         </div>
+      </div>
 
-        <div className="mt-40 md:px-10 px-5 flex gap-10 md:flex-row flex-col justify-between text-goonj-light-teal font-paragraph md:text-lg font-medium">
+      {/* BOTTOM — solid black content area */}
+      <div className="bg-black">
+        <div className="md:px-10 px-5 py-16 flex gap-10 md:flex-row flex-col justify-between text-goonj-light-teal font-paragraph md:text-lg font-medium">
           <div className="flex items-center md:gap-16 gap-5">
             <div>
               <p className="font-bold text-white mb-2">Fest Highlights</p>
@@ -70,6 +72,7 @@ const FooterSection = () => {
           </div>
         </div>
       </div>
+
     </section>
   );
 };
