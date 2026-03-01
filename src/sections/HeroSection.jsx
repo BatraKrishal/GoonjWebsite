@@ -33,7 +33,7 @@ const HeroSection = () => {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
           ease: "circ.out",
         },
-        "-=0.5"
+        "-=0.5",
       )
       .from(
         titleSplit.chars,
@@ -42,7 +42,7 @@ const HeroSection = () => {
           stagger: 0.02,
           ease: "power2.out",
         },
-        "-=0.5"
+        "-=0.5",
       );
 
     const heroTl = gsap.timeline({
@@ -62,7 +62,7 @@ const HeroSection = () => {
   });
 
   return (
-    <section className="bg-main-bg">
+    <section className="bg-white">
       <div className="hero-container">
         {isTablet ? (
           <>
@@ -79,10 +79,14 @@ const HeroSection = () => {
           </>
         ) : (
           <video
-            src="/videos/"
+            src="/videos/hero-bg.mp4"
             autoPlay
             muted
             playsInline
+            onEnded={(e) => {
+              e.target.pause();
+              e.target.currentTime = e.target.duration;
+            }}
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
@@ -102,12 +106,11 @@ const HeroSection = () => {
           </div>
 
           <h2>
-            Live life to the fullest  with SPYLT: Shatter boredom and embrace
-            your inner kid with every deliciously smooth chug.
+            “Jahan Kala Sirf Dikhti Nahi, Mehsoos Bhi Hoti Hai — Wahi Hai Goonj.”
           </h2>
 
           <div className="hero-button">
-            <p>Chug a SPYLT</p>
+            <p>Explore</p>
           </div>
         </div>
       </div>

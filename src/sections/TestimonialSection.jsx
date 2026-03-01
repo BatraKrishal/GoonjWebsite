@@ -73,9 +73,9 @@ const TestimonialSection = () => {
           width: "100vw",
         }}>
       <div className="absolute size-full flex flex-col items-center pt-[1vh]">
-        <h1 className="text-black first-title">What's</h1>
-        <h1 className="text-white sec-title">Everyone</h1>
-        <h1 className="text-black third-title">Talking</h1>
+        <h1 className="text-black first-title">Higlights</h1>
+        <h1 className="text-white sec-title">Of</h1>
+        <h1 className="text-black third-title">Goonj2k25</h1>
       </div>
 
       <div className="pin-box">
