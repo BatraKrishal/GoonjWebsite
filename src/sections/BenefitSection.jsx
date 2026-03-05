@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import ClipPathTitle from "../components/ClipPathTitle";
 import gsap from "gsap";
-import VideoPinSection from "../components/VideoPinSection";
+import VideoRevealSection from "../components/VideoRevealSection";
 
 const BenefitSection = () => {
   useGSAP(() => {
@@ -48,7 +48,7 @@ const BenefitSection = () => {
           backgroundImage: "url('/images/benefits-bg.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          width: "100vw",
+          width: "100%",
         }}
     >
       <div className="container mx-auto pt-20">
@@ -96,7 +96,7 @@ const BenefitSection = () => {
       </div>
 
       <div className="relative overlay-box">
-        <VideoPinSection />
+        <VideoRevealSection />
       </div>
     </section>
   );

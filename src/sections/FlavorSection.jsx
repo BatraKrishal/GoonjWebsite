@@ -3,9 +3,9 @@ import FlavorSlider from "../components/FlavorSlider";
 
 const FlavorSection = () => {
   return (
-    <section className="flavor-section">
+    <section className="flavor-section bg-[url('/images/bg-red-mob.png')]">
       <div
-        className="flavor-bg-fixed absolute top-0 left-0 h-[102vh]"
+        className="flavor-bg-fixed hidden md:block absolute top-0 left-0 h-[102vh]"
         style={{
           backgroundImage: "url('/images/red-bg.png')",
           backgroundSize: "cover",
