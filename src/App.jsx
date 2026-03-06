@@ -2,43 +2,34 @@ import NavBar from "./components/NavBar";
 import HeroSection from "./sections/HeroSection";
 import { ScrollSmoother, ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
-import MessageSection from "./sections/MessageSection";
-import FlavorSection from "./sections/FlavorSection";
+import { Routes, Route } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
-import NutritionSection from "./sections/NutritionSection";
-import BenefitSection from "./sections/BenefitSection";
-import TestimonialSection from "./sections/TestimonialSection";
+import { Home } from "./routes/Home";
+import { Teams } from "./routes/Teams";
+import { Events } from "./routes/Events";
+import { About } from "./routes/About";
 import FooterSection from "./sections/FooterSection";
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+// gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const App = () => {
-  useGSAP(() => {
-    ScrollSmoother.create({
-      smooth: 3,
-      effects: true,
-    });
-  });
+  // useGSAP(() => {
+  //   ScrollSmoother.create({
+  //     smooth: 3,
+  //     effects: true,
+  //   });
+  // });
 
   return (
-    <main>
-      <NavBar />
-      <div id="smooth-wrapper">
-        <div id="smooth-content">
-          <HeroSection />
-          <MessageSection />
-          <FlavorSection />
-          <NutritionSection />
-
-          <div>
-            <BenefitSection />
-            <TestimonialSection />
-          </div>
-
-          <FooterSection />
-        </div>
-      </div>
-    </main>
+    <div>
+      <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/teams" element={<Teams />} />
+      <Route path="/events" element={<Events />} />
+      <Route path="/about" element={<About />} />
+    </Routes>
+    <FooterSection/>
+    </div>
   );
 };
 
