@@ -33,8 +33,10 @@ body {
   font-family: "Antonio", sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
 }
 
 body::-webkit-scrollbar {
@@ -123,7 +125,7 @@ body::-webkit-scrollbar {
   }
 
   .flavor-section {
-    @apply min-h-dvh ;
+    @apply min-h-dvh;
 
     .flavor-text-scroll {
       @apply rotate-[-3deg] md:translate-y-5 border-[.5vw] border-white absolute z-10;
@@ -141,19 +143,7 @@ body::-webkit-scrollbar {
       @apply lg:h-dvh min-h-dvh md:min-h-fit w-full mt-0 md:mt-20 xl:mt-0;
 
       .flavors {
-        @apply h-full w-full flex md:flex-row flex-col items-center 2xl:gap-72 lg:gap-52 md:gap-24 gap-7 flex-nowrap;
-
-        .drinks {
-          @apply absolute left-1/2 -translate-x-1/2 bottom-0 md:h-full h-80;
-        }
-
-        .elements {
-          @apply absolute md:top-0 md:bottom-auto bottom-10 w-full;
-        }
-
-        h1 {
-          @apply absolute md:bottom-10 md:left-10 bottom-5 left-5 text-milk md:text-6xl text-3xl font-semibold uppercase tracking-tighter;
-        }
+        @apply h-full w-full flex md:flex-row flex-col items-center 2xl:gap-56 lg:gap-40 md:gap-16 gap-8 flex-nowrap px-4 md:px-0;
       }
     }
   }
@@ -281,5 +271,101 @@ body::-webkit-scrollbar {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@layer utilities {
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  @supports (padding: max(0px)) {
+    .safe-area-pad-x {
+      padding-left: max(1rem, env(safe-area-inset-left));
+      padding-right: max(1rem, env(safe-area-inset-right));
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .general-title {
+    font-size: 2.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  
+  .hero-container .hero-content .hero-title {
+    font-size: 2.8rem;
+  }
+  
+  .hero-container .hero-content .hero-text-scroll h1 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  button, 
+  .hero-button,
+  .social-btn,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .message-content .msg-wrapper h1:first-of-type,
+  .message-content .msg-wrapper h1:last-of-type {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    padding: 0 1rem;
+  }
+  
+  .flavor-section .slider-wrapper .flavors .drinks {
+    height: 60vh;
+  }
+  
+  .testimonials-section {
+    height: 100dvh;
+  }
+  
+  .testimonials-section .pin-box {
+    bottom: 20vh;
+  }
+  
+  .footer-section .social-btn {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .benefit-section .vd-pin-section {
+    min-height: 60vh;
+  }
+  
+  .nutrition-section .nutrition-box .list-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .nutrition-section .nutrition-box .list-wrapper .spacer-border {
+    display: none;
   }
 }

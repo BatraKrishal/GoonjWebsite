@@ -1,33 +1,87 @@
 const flavorlists = [
   {
-    name: "Chocolate Milk",
-    color: "brown",
+    name: "Dance",
+    color: "dance",
     rotation: "md:rotate-[-8deg] rotate-0",
+    summary:
+      "A high-energy lineup built for expression, rhythm, and stage command.",
+    events: [
+      "Solo Sync",
+      "Duet Dynamics",
+      "Street Cypher",
+      "Folk Fusion",
+      "Crew Chronicle",
+    ],
   },
   {
-    name: "Stawberry Milk",
-    color: "red",
+    name: "Fine Art",
+    color: "fineart",
     rotation: "md:rotate-[8deg] rotate-0",
+    summary:
+      "Visual storytelling takes the lead with crafted detail, color, and bold ideas.",
+    events: [
+      "Live Canvas",
+      "Sketch Sprint",
+      "Rangoli Reverie",
+      "Poster Pulse",
+      "Face Art Lab",
+    ],
   },
   {
-    name: "Cookies & Cream",
-    color: "blue",
+    name: "Lifestyle",
+    color: "lifestyle",
     rotation: "md:rotate-[-8deg] rotate-0",
+    summary:
+      "Style, personality, and social culture collide in a format made for the spotlight.",
+    events: [
+      "Runway Edit",
+      "Style Thesis",
+      "Reel Rush",
+      "Campus Chronicle",
+      "Mr & Ms Goonj",
+    ],
   },
   {
-    name: "Peanut Butter Chocolate",
-    color: "orange",
+    name: "Literary",
+    color: "literary",
     rotation: "md:rotate-[8deg] rotate-0",
+    summary:
+      "Words sharpen into performance through debate, verse, wit, and storytelling.",
+    events: [
+      "Slam Verse",
+      "Debate Room",
+      "Ink Clash",
+      "Quiz Circuit",
+      "Story Forge",
+    ],
   },
   {
-    name: "Vanilla Milkshake",
-    color: "white",
+    name: "Theatre",
+    color: "theatre",
     rotation: "md:rotate-[-8deg] rotate-0",
+    summary:
+      "Performance-led narratives with voice, movement, timing, and dramatic impact.",
+    events: [
+      "Nukkad Echo",
+      "Mono Act",
+      "Mime Shift",
+      "Stagecraft",
+      "Improv Jam",
+    ],
   },
   {
-    name: "Max Chocolate Milk",
-    color: "black",
+    name: "Music",
+    color: "music",
     rotation: "md:rotate-[8deg] rotate-0",
+    summary:
+      "Melody, power, and crowd energy shape a lineup tuned for every kind of performer.",
+    events: [
+      "Battle of Bands",
+      "Solo Vocals",
+      "Unplugged Session",
+      "Rap Relay",
+      "Instrumental Pulse",
+    ],
   },
 ];
 

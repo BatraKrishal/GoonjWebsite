@@ -1,11 +1,13 @@
 import { useGSAP } from "@gsap/react";
 import { flavorlists } from "../constants";
 import gsap from "gsap";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
+import EventModal from "./EventModal";
 
 const FlavorSlider = () => {
   const sliderRef = useRef();
+  const [activeFlavor, setActiveFlavor] = useState(null);
 
   const isTablet = useMediaQuery({
     query: "(max-width: 1024px)",
@@ -75,55 +77,60 @@ const FlavorSlider = () => {
   });
 
   return (
-    <div ref={sliderRef} className="slider-wrapper">
-      <div className="flavors">
-        {flavorlists.map((flavor) => {
-          const isEventCard = flavor.color === "event";
-
-          return (
-            <div
+    <>
+      <div ref={sliderRef} className="slider-wrapper">
+        <div className="flavors">
+          {flavorlists.map((flavor) => (
+            <button
               key={flavor.name}
-              className={`relative z-30 lg:w-[50vw] w-96 lg:h-[70vh] md:w-[90vw] md:h-[50vh] h-80 flex-none magnetic-target cursor-none overflow-hidden rounded-2xl ${flavor.rotation}`}
+              type="button"
+              aria-label={`Open ${flavor.name} events`}
+              className={`group relative z-30 h-[50vh] w-[80vw] flex-none cursor-pointer bg-transparent p-0 text-left md:h-[55vh] md:w-[70vw] lg:h-[65vh] lg:w-[50vw] ${flavor.rotation}`}
+              onClick={() => setActiveFlavor(flavor)}
             >
-              {isEventCard ? (
-                /* Use flavor-bg.png with a dark overlay as the card background */
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: "url('/images/flavor-bg.png')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
-                  <div className="absolute inset-0 bg-black/30" />
+              <div className="h-full w-full overflow-hidden rounded-2xl shadow-2xl">
+                <div className="relative h-full w-full">
+                  <img
+                    src={`/images/${flavor.color}.png`}
+                    alt={flavor.name}
+                    className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute left-5 top-5 rotate-[-3deg] border-2 border-white/70 md:left-7 md:top-7">
+                    <div className="bg-[#871B1A] px-4 py-2">
+                      <p className="font-paragraph text-[0.65rem] uppercase tracking-[0.35em] text-white/70">
+                        Explore
+                      </p>
+                      <p className="mt-1 text-sm uppercase tracking-[0.3em] text-white">
+                        Event lineup
+                      </p>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                    <p className="font-paragraph text-[0.7rem] uppercase tracking-[0.35em] text-white/70">
+                      {flavor.events.length} highlighted events
+                    </p>
+                    <h1 className="mt-3 text-4xl font-bold uppercase tracking-widest text-white drop-shadow-lg md:text-6xl">
+                      {flavor.name}
+                    </h1>
+                    <p className="mt-3 max-w-sm font-paragraph text-sm leading-relaxed text-white/80 md:text-base">
+                      {flavor.summary}
+                    </p>
+                  </div>
+                  <div className="absolute bottom-6 right-6 rounded-full border border-white/30 bg-white/10 px-4 py-2 font-paragraph text-[0.65rem] uppercase tracking-[0.35em] text-white backdrop-blur-sm transition-all duration-300 group-hover:bg-white group-hover:text-[#523122] md:bottom-8 md:right-8">
+                    Open modal
+                  </div>
                 </div>
-              ) : (
-                <>
-                  <img
-                    src={`/images/${flavor.color}-bg.svg`}
-                    alt=""
-                    className="absolute bottom-0"
-                  />
-                  <img
-                    src={`/images/${flavor.color}-drink.webp`}
-                    alt=""
-                    className="drinks"
-                  />
-                  <img
-                    src={`/images/${flavor.color}-elements.webp`}
-                    alt=""
-                    className="elements"
-                  />
-                </>
-              )}
-
-              {/* Event name always visible */}
-              <h1>{flavor.name}</h1>
-            </div>
-          );
-        })}
+              </div>
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
+      <EventModal
+        flavor={activeFlavor}
+        onClose={() => setActiveFlavor(null)}
+      />
+    </>
   );
 };
 

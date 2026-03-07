@@ -1,0 +1,26 @@
+{
+  "name": "Goonj 2k26",
+  "short_name": "Goonj",
+  "description": "Indian Maximalism - Experience the echo of future engineers",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#232224",
+  "theme_color": "#232224",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/nav-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/nav-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["entertainment", "events"],
+  "lang": "en"
+}
