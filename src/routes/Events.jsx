@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useRef } from "react";
 import EventCard from "../components/Events/EventCard";
+import FooterSection from "../sections/FooterSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -110,7 +111,8 @@ export const Events = () => {
   });
 
   return (
-    <div className="lg:p-4 p-2  bg-[#000000] text-white">
+    <div>
+      <div className="lg:p-4 p-2  bg-[#000000] text-white">
       <div
         className="h-[55vh] flex flex-row-reverse"
         
@@ -142,6 +144,8 @@ export const Events = () => {
           );
         })}
       </div>
+    </div>
+    <FooterSection/>
     </div>
   );
 };
