@@ -7,8 +7,18 @@ import FlavorSection from '../sections/FlavorSection'
 import BenefitSection from '../sections/BenefitSection'
 import TestimonialSection from '../sections/TestimonialSection'
 import FooterSection from '../sections/FooterSection'
+import { useGSAP } from '@gsap/react'
+import gsap from "gsap";
+import { ScrollSmoother, ScrollTrigger } from "gsap/all";
 
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 export const Home = () => {
+   useGSAP(() => {
+    ScrollSmoother.create({
+      smooth: 3,
+      effects: true,
+    });
+  });
   return (
     <main>
       <NavBar />
