@@ -5,8 +5,9 @@ const NavBar = () => {
 
   return (
     <nav className="fixed top-0 left-0 z-50 md:p-9 p-4 w-full">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between md:justify- items-center">
         <img src="/images/nav-logo.png" alt="nav-logo" className="md:w-48 w-24" />
+        
         
         <button 
           className="md:hidden p-2"
@@ -28,6 +29,23 @@ const NavBar = () => {
             <a href="#nutrition" className="text-[#523122] text-xl font-bold" onClick={() => setIsMenuOpen(false)}>Nutrition</a>
             <a href="#benefits" className="text-[#523122] text-xl font-bold" onClick={() => setIsMenuOpen(false)}>Benefits</a>
           </div>
+        </div>
+
+        <div className="absolute right-30">
+          <ul className="hidden md:flex gap-8">
+            <li>
+              <a href="/" className="text-[#ffffff] hover:underline text-xl font-bold">Home</a>
+            </li>
+            <li>
+              <a href="events" className="text-[#ffffff] hover:underline text-xl font-bold">Events</a>
+            </li>
+            <li>
+              <a href="teams" className="text-[#ffffff] hover:underline text-xl font-bold">Teams</a>
+            </li>
+            <li>
+              <a href="about" className="text-[#ffffff] hover:underline text-xl font-bold">About</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>

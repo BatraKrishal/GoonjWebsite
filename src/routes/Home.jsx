@@ -22,6 +22,7 @@ export const Home = () => {
   return (
     <main>
       <NavBar />
+      
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <HeroSection />
