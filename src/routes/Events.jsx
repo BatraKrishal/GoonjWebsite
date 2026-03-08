@@ -12,79 +12,79 @@ export const Events = () => {
   const projects = [
     {
       image1:
-        "https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_1280x960-1280x960.jpg",
+        "/images/Events/mime.png",
       image2:
-        "https://k72.ca/uploads/caseStudies/WIDESCAPE/WS---K72.ca---Thumbnail-1280x960.jpg",
+        "/images/Events/classicalDance.png",
       event1: "Mime",
       event2: "Classical Dance",
     },
     {
       image1:
-        "https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_1280x960-1280x960.jpg",
+        "/images/Events/westernDance.png",
       image2:
-        "https://k72.ca/uploads/caseStudies/WIDESCAPE/WS---K72.ca---Thumbnail-1280x960.jpg",
+        "/images/Events/bollywoodTadka.png",
       event1: "Western Dance",
       event2: "Bollywood Tadka",
     },
     {
       image1:
-        "https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_1280x960-1280x960.jpg",
+        "/images/Events/oppo.png",
       image2:
-        "https://k72.ca/uploads/caseStudies/WIDESCAPE/WS---K72.ca---Thumbnail-1280x960.jpg",
+        "/images/Events/monoact.png",
       event1: "Oppo",
       event2: "Monoact",
     },
     {
       image1:
-        "https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_1280x960-1280x960.jpg",
+        "/images/Events/streetCypher.png",
       image2:
-        "https://k72.ca/uploads/caseStudies/WIDESCAPE/WS---K72.ca---Thumbnail-1280x960.jpg",
+        "/images/Events/campusIcon.png",
       event1: "Street Cypher",
       event2: "Campus Icon",
     },
     {
       image1:
-        "https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_1280x960-1280x960.jpg",
+        "/images/Events/rampWalk.png",
       image2:
-        "https://k72.ca/uploads/caseStudies/WIDESCAPE/WS---K72.ca---Thumbnail-1280x960.jpg",
-      event1: "SRamp Walk",
+        "/images/Events/nukkadNatak.png",
+      event1: "Ramp Walk",
       event2: "Nukkad Natak",
     },
     {
       image1:
-        "https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_1280x960-1280x960.jpg",
+        "/images/Events/rockNRoll.png",
       image2:
-        "https://k72.ca/uploads/caseStudies/WIDESCAPE/WS---K72.ca---Thumbnail-1280x960.jpg",
+        "/images/Events/sargam.png",
       event1: "Rock n Roll",
       event2: "Sargam",
     },
     {
       image1:
-        "https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_1280x960-1280x960.jpg",
+        "/images/Events/madhubani.png",
       image2:
-        "https://k72.ca/uploads/caseStudies/WIDESCAPE/WS---K72.ca---Thumbnail-1280x960.jpg",
+        "/images/Events/calligraphy.png", 
       event1: "Madhubani",
       event2: "Calligraphy",
     },
     {
       image1:
-        "https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_1280x960-1280x960.jpg",
+        "/images/Events/graffiti.png",
       image2:
-        "https://k72.ca/uploads/caseStudies/WIDESCAPE/WS---K72.ca---Thumbnail-1280x960.jpg",
+        "/images/Events/debate.png",
       event1: "Grafiti",
       event2: "Debate",
     },
     {
       image1:
-        "https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_1280x960-1280x960.jpg",
+        "/images/Events/poetry.png",
       image2:
-        "https://k72.ca/uploads/caseStudies/WIDESCAPE/WS---K72.ca---Thumbnail-1280x960.jpg",
+        "/images/Events/literaryCourtroom.png",
       event1: "Poetry",
       event2: "Literary Courtroom",
     },
     {
       image1:
-        "https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_1280x960-1280x960.jpg",
+        "/images/Events/fandomTrivia.png",
       image2: "NULL",
       event1: "Fandom Trivia",
       event2: "",
