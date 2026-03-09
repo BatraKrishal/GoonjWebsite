@@ -1,5 +1,21 @@
-
 const FooterSection = () => {
+  const socialLinks = [
+    {
+      icon: "/images/yt.svg",
+      href: "https://www.youtube.com/@OFFICIALSACGBPIET/",
+      label: "YouTube",
+    },
+    {
+      icon: "/images/insta.svg",
+      href: "https://www.instagram.com/sacgbpiet/",
+      label: "Instagram",
+    },
+    {
+      icon: "/images/linkedin.svg",
+      href: "https://www.linkedin.com/company/goonj-gbpec-pauri/",
+      label: "LinkedIn",
+    },
+  ];
 
   return (
     <section className="footer-section text-white">
@@ -18,16 +34,19 @@ const FooterSection = () => {
           </h1>
         </div>
 
-        <div className="flex-center gap-5 relative z-10 md:mt-10 mt-5">
-          <div className="social-btn border-white/20 bg-[#222123] hover:bg-[#18161a]">
-            <img src="./images/yt.svg" alt="" />
-          </div>
-          <div className="social-btn border-white/20 bg-[#222123] hover:bg-[#18161a]">
-            <img src="./images/insta.svg" alt="" />
-          </div>
-          <div className="social-btn  border-white/20 bg-[#222123] hover:bg-[#18161a]">
-            <img src="./images/linkedin.svg" alt="" />
-          </div>
+        <div className="relative z-10 mt-5 flex-center gap-5 md:mt-10">
+          {socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={link.label}
+              className="social-btn border-white/20 bg-[#222123] hover:bg-[#18161a]"
+            >
+              <img src={link.icon} alt="" />
+            </a>
+          ))}
         </div>
       </div>
 
@@ -43,9 +62,9 @@ const FooterSection = () => {
             </div>
             <div>
               <p className="font-bold text-white mb-2">Explore</p>
-              <p className="opacity-70">Schedule</p>
-              <p className="opacity-70">Register</p>
-              <p className="opacity-70">Sponsors</p>
+              <a href="/" className="block opacity-70 transition-opacity hover:opacity-100">Home</a>
+              <a href="/about" className="block opacity-70 transition-opacity hover:opacity-100">About</a>
+              <a href="mailto:goonjgbpiet@gmail.com" className="block opacity-70 transition-opacity hover:opacity-100">Contact</a>
             </div>
           </div>
 
@@ -67,8 +86,10 @@ const FooterSection = () => {
         <div className="copyright-box  border-t border-white/10">
           <p>Copyright © 2026 Goonj Fest - GBPIET. All Rights Reserved.</p>
           <div className="flex items-center gap-7">
-            <p>Guidelines</p>
-            <p>Privacy Policy</p>
+            <a href="https://goonj.gbpiet.in/" target="_blank" rel="noreferrer">
+              Last Year
+            </a>
+            <a href="mailto:goonjgbpiet@gmail.com">Mail</a>
           </div>
         </div>
       </div>

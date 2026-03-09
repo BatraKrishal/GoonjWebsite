@@ -1,95 +1,72 @@
-import React from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import EventCard from "../components/Events/EventCard";
+import EventDetailsModal from "../components/Events/EventDetailsModal";
 import FooterSection from "../sections/FooterSection";
 import NavBar from "../components/NavBar";
+import { eventCatalog, eventLookup } from "../constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const posterMap = {
+  mime: "/images/Events/mime.png",
+  "classical-dance": "/images/Events/classicalDance.png",
+  "western-dance": "/images/Events/westernDance.png",
+  "bollywood-tadka": "/images/Events/bollywoodTadka.png",
+  oppo: "/images/Events/oppo.png",
+  "mono-act": "/images/Events/monoact.png",
+  "street-cypher": "/images/Events/streetCypher.png",
+  "campus-icon": "/images/Events/campusIcon.png",
+  "ramp-walk": "/images/Events/rampWalk.png",
+  "nukkad-natak": "/images/Events/nukkadNatak.png",
+  "rock-and-roll": "/images/Events/rockNRoll.png",
+  sargam: "/images/Events/sargam.png",
+  "madhubani-art": "/images/Events/madhubani.png",
+  calligraphy: "/images/Events/calligraphy.png",
+  graffiti: "/images/Events/graffiti.png",
+  debate: "/images/Events/debate.png",
+  poetry: "/images/Events/poetry.png",
+  "literary-courtroom": "/images/Events/literaryCourtroom.png",
+  "fandom-trivia": "/images/Events/fandomTrivia.png",
+};
+
+const pairOrder = [
+  ["mime", "classical-dance"],
+  ["western-dance", "bollywood-tadka"],
+  ["oppo", "mono-act"],
+  ["street-cypher", "campus-icon"],
+  ["ramp-walk", "nukkad-natak"],
+  ["rock-and-roll", "sargam"],
+  ["madhubani-art", "calligraphy"],
+  ["graffiti", "debate"],
+  ["poetry", "literary-courtroom"],
+  ["fandom-trivia", null],
+];
+
 export const Events = () => {
-  const projects = [
-    {
-      image1:
-        "/images/Events/mime.png",
-      image2:
-        "/images/Events/classicalDance.png",
-      event1: "Mime",
-      event2: "Classical Dance",
-    },
-    {
-      image1:
-        "/images/Events/westernDance.png",
-      image2:
-        "/images/Events/bollywoodTadka.png",
-      event1: "Western Dance",
-      event2: "Bollywood Tadka",
-    },
-    {
-      image1:
-        "/images/Events/oppo.png",
-      image2:
-        "/images/Events/monoact.png",
-      event1: "Oppo",
-      event2: "Monoact",
-    },
-    {
-      image1:
-        "/images/Events/streetCypher.png",
-      image2:
-        "/images/Events/campusIcon.png",
-      event1: "Street Cypher",
-      event2: "Campus Icon",
-    },
-    {
-      image1:
-        "/images/Events/rampWalk.png",
-      image2:
-        "/images/Events/nukkadNatak.png",
-      event1: "Ramp Walk",
-      event2: "Nukkad Natak",
-    },
-    {
-      image1:
-        "/images/Events/rockNRoll.png",
-      image2:
-        "/images/Events/sargam.png",
-      event1: "Rock n Roll",
-      event2: "Sargam",
-    },
-    {
-      image1:
-        "/images/Events/madhubani.png",
-      image2:
-        "/images/Events/calligraphy.png", 
-      event1: "Madhubani",
-      event2: "Calligraphy",
-    },
-    {
-      image1:
-        "/images/Events/graffiti.png",
-      image2:
-        "/images/Events/debate.png",
-      event1: "Grafiti",
-      event2: "Debate",
-    },
-    {
-      image1:
-        "/images/Events/poetry.png",
-      image2:
-        "/images/Events/literaryCourtroom.png",
-      event1: "Poetry",
-      event2: "Literary Courtroom",
-    },
-    {
-      image1:
-        "/images/Events/fandomTrivia.png",
-      image2: "NULL",
-      event1: "Fandom Trivia",
-      event2: "",
-    },
-  ];
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [activeEvent, setActiveEvent] = useState(null);
+  const focusedSlug = searchParams.get("event");
+
+  const eventsBySlug = useMemo(
+    () =>
+      Object.fromEntries(
+        eventCatalog.map((event) => [event.slug, { ...event, poster: posterMap[event.slug] }]),
+      ),
+    [],
+  );
+
+  const projects = useMemo(
+    () =>
+      pairOrder.map(([leftSlug, rightSlug]) => ({
+        leftEvent: eventsBySlug[leftSlug] ?? null,
+        rightEvent: rightSlug ? eventsBySlug[rightSlug] ?? null : null,
+      })),
+    [eventsBySlug],
+  );
 
   useGSAP(() => {
     gsap.fromTo(
@@ -108,45 +85,69 @@ export const Events = () => {
         },
       },
     );
-  });
+  }, [projects.length]);
+
+  useEffect(() => {
+    if (!focusedSlug) {
+      return;
+    }
+
+    const matchedEvent = eventLookup[focusedSlug];
+    if (!matchedEvent) {
+      return;
+    }
+
+    const currentCard = document.getElementById(`event-${matchedEvent.slug}`);
+    if (currentCard) {
+      currentCard.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [focusedSlug]);
+
+  const handleOpen = (event) => {
+    setActiveEvent(event);
+    setSearchParams({ event: event.slug });
+  };
+
+  const handleClose = () => {
+    setActiveEvent(null);
+  };
 
   return (
     <div>
-      <NavBar/>
-      <div className="lg:p-4 p-2  bg-[#000000] text-white">
-      <div
-        className="h-[55vh] flex flex-row-reverse"
-        
-      >
-        <div className=" h-full" style={{
-          backgroundImage: "url('/images/events-bg.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "top",
-          width: "60%",
-        }}></div>
-        <h2 className="absolute top-75 left-5 lg:text-[9.5vw] align-text-bottom  text-7xl uppercase">
-          Events
-        </h2>
-      </div>
-      <div className="lg:mt-20 lol">
-        {projects.map(function (elem, idx) {
-          return (
+      <NavBar />
+      <div className="bg-[#000000] p-2 text-white lg:p-4">
+        <div className="h-[55vh] flex flex-row-reverse">
+          <div
+            className="h-full"
+            style={{
+              backgroundImage: "url('/images/events-bg.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "top",
+              width: "60%",
+            }}
+          ></div>
+          <h2 className="absolute top-75 left-5 text-7xl uppercase align-text-bottom lg:text-[9.5vw]">
+            Events
+          </h2>
+        </div>
+        <div className="lol lg:mt-20">
+          {projects.map((project, idx) => (
             <div
               key={idx}
-              className="hero w-full lg:h-[80vh] min-h-[100px] mb-4 flex lg:flex-row flex-col lg:gap-4 gap-2"
+              className="hero mb-4 flex min-h-[100px] w-full flex-col gap-2 lg:h-[80vh] lg:flex-row lg:gap-4"
             >
               <EventCard
-                image1={elem.image1}
-                image2={elem.image2}
-                event1={elem.event1}
-                event2={elem.event2}
+                leftEvent={project.leftEvent}
+                rightEvent={project.rightEvent}
+                activeSlug={focusedSlug}
+                onOpen={handleOpen}
               />
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
-    </div>
-    <FooterSection/>
+      <EventDetailsModal event={activeEvent} onClose={handleClose} />
+      <FooterSection />
     </div>
   );
 };

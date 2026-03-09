@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { ScrollSmoother } from "gsap/all";
+import { Link } from "react-router-dom";
+import { slugifyEventName } from "../constants";
 
 const EventModal = ({ flavor, onClose }) => {
   const [activeEventIndex, setActiveEventIndex] = useState(0);
@@ -123,31 +125,39 @@ const EventModal = ({ flavor, onClose }) => {
                 const isActive = index === activeEventIndex;
 
                 return (
-                  <button
+                  <div
                     key={eventName}
-                    type="button"
                     className={`flex w-full items-center justify-between gap-4 rounded-[1.5rem] border px-4 py-4 text-left transition-all duration-300 md:px-5 ${
                       isActive
                         ? "border-[#523122] bg-[#523122] text-[#faeade] shadow-[0_16px_40px_rgba(82,49,34,0.18)]"
                         : "border-[#a26833]/20 bg-white/70 text-[#523122] hover:border-[#523122]/40 hover:bg-[#f4dfcf]"
                     }`}
-                    onFocus={() => setActiveEventIndex(index)}
-                    onMouseEnter={() => setActiveEventIndex(index)}
                   >
                     <span>
-                      <span
+                      <button
+                        type="button"
+                        className="text-left"
+                        onFocus={() => setActiveEventIndex(index)}
+                        onMouseEnter={() => setActiveEventIndex(index)}
+                        onClick={() => setActiveEventIndex(index)}
+                      >
+                        <span
                         className={`font-paragraph text-[0.65rem] uppercase tracking-[0.35em] ${
                           isActive ? "text-[#faeade]/60" : "text-[#a26833]"
                         }`}
-                      >
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <span className="mt-2 block text-2xl uppercase leading-none md:text-3xl">
-                        {eventName}
-                      </span>
+                        >
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <span className="mt-2 block text-2xl uppercase leading-none md:text-3xl">
+                          {eventName}
+                        </span>
+                      </button>
                     </span>
 
-                    <span
+                    <Link
+                      to={`/events?event=${slugifyEventName(eventName)}`}
+                      onClick={onClose}
+                      aria-label={`Open ${eventName} on events page`}
                       className={`flex size-10 items-center justify-center rounded-full border text-lg transition-transform duration-300 ${
                         isActive
                           ? "border-[#faeade]/40"
@@ -155,8 +165,8 @@ const EventModal = ({ flavor, onClose }) => {
                       }`}
                     >
                       ↗
-                    </span>
-                  </button>
+                    </Link>
+                  </div>
                 );
               })}
             </div>
@@ -172,6 +182,13 @@ const EventModal = ({ flavor, onClose }) => {
                 Hover across the lineup to preview each event inside the{" "}
                 {flavor.name} category.
               </p>
+              <Link
+                to={`/events?event=${slugifyEventName(activeEvent)}`}
+                onClick={onClose}
+                className="mt-4 inline-flex rounded-full border border-[#523122]/20 px-4 py-2 text-[0.72rem] uppercase tracking-[0.25em] text-[#523122] transition-colors hover:bg-[#523122] hover:text-[#faeade]"
+              >
+                View full rules
+              </Link>
             </div>
           </div>
         </div>

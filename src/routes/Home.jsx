@@ -25,12 +25,20 @@ export const Home = () => {
       
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <HeroSection />
-          <MessageSection />
-          <FlavorSection />
-          <NutritionSection />
+          <section id="home">
+            <HeroSection />
+          </section>
+          <section id="message">
+            <MessageSection />
+          </section>
+          <section id="flavors">
+            <FlavorSection />
+          </section>
+          <section id="nutrition">
+            <NutritionSection />
+          </section>
 
-          <div>
+          <div id="benefits">
             <BenefitSection />
             <TestimonialSection />
           </div>

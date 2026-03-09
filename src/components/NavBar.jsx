@@ -1,49 +1,63 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isHomePage = pathname === "/";
 
   return (
-    <nav className="fixed top-0 left-0 z-50 md:p-9 p-4 w-full">
-      <div className="flex justify-between md:justify- items-center">
-        <img src="/images/nav-logo.png" alt="nav-logo" className="md:w-48 w-24" />
-        
-        
-        <button 
-          className="md:hidden p-2"
+    <nav className="fixed top-0 left-0 z-50 w-full p-4 md:p-9">
+      <div className="flex items-center justify-between">
+        <Link to="/">
+          <img src="/images/nav-logo.png" alt="nav-logo" className="md:w-48 w-24" />
+        </Link>
+
+        <button
+          className="p-2 md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
           <div className="space-y-1.5">
-            <span className={`block w-6 h-0.5 bg-[#523122] transition-transform ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-            <span className={`block w-6 h-0.5 bg-[#523122] ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`block w-6 h-0.5 bg-[#523122] transition-transform ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+            <span className={`block w-6 h-0.5 bg-[#523122] transition-transform ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`}></span>
+            <span className={`block w-6 h-0.5 bg-[#523122] ${isMenuOpen ? "opacity-0" : ""}`}></span>
+            <span className={`block w-6 h-0.5 bg-[#523122] transition-transform ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
           </div>
         </button>
 
-        <div className={`fixed md:relative top-0 right-0 md:h-auto h-dvh md:w-auto w-64 bg-milk md:bg-transparent md:flex items-center md:opacity-100 ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'} transition-opacity duration-300 md:pointer-events-auto`}>
-          <div className="md:hidden pt-20 px-6 flex flex-col gap-6">
-            <a href="#home" className="text-[#523122] text-xl font-bold" onClick={() => setIsMenuOpen(false)}>Home</a>
-            <a href="#message" className="text-[#523122] text-xl font-bold" onClick={() => setIsMenuOpen(false)}>Message</a>
-            <a href="#flavors" className="text-[#523122] text-xl font-bold" onClick={() => setIsMenuOpen(false)}>Flavors</a>
-            <a href="#nutrition" className="text-[#523122] text-xl font-bold" onClick={() => setIsMenuOpen(false)}>Nutrition</a>
-            <a href="#benefits" className="text-[#523122] text-xl font-bold" onClick={() => setIsMenuOpen(false)}>Benefits</a>
+        <div
+          className={`fixed top-0 right-0 h-dvh w-64 bg-milk transition-opacity duration-300 md:hidden ${
+            isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
+        >
+          <div className="flex flex-col gap-6 px-6 pt-20">
+            {isHomePage && (
+              <>
+                <a href="#home" className="text-[#523122] text-xl font-bold" onClick={() => setIsMenuOpen(false)}>Home</a>
+                <a href="#message" className="text-[#523122] text-xl font-bold" onClick={() => setIsMenuOpen(false)}>Message</a>
+                <a href="#flavors" className="text-[#523122] text-xl font-bold" onClick={() => setIsMenuOpen(false)}>Events</a>
+                <a href="#nutrition" className="text-[#523122] text-xl font-bold" onClick={() => setIsMenuOpen(false)}>Fest Info</a>
+                <a href="#benefits" className="text-[#523122] text-xl font-bold" onClick={() => setIsMenuOpen(false)}>Highlights</a>
+              </>
+            )}
+            <Link to="/events" className="text-[#523122] text-xl font-bold" onClick={() => setIsMenuOpen(false)}>Events Page</Link>
+            <Link to="/about" className="text-[#523122] text-xl font-bold" onClick={() => setIsMenuOpen(false)}>About</Link>
           </div>
         </div>
 
         <div className="absolute right-30">
-          <ul className="hidden md:flex gap-8">
+          <ul className="hidden gap-8 md:flex">
             <li>
-              <a href="/" className="text-[#ffffff] hover:underline text-xl font-bold">Home</a>
+              <Link to="/" className="text-[#ffffff] hover:underline text-xl font-bold">Home</Link>
             </li>
             <li>
-              <a href="events" className="text-[#ffffff] hover:underline text-xl font-bold">Events</a>
+              <Link to="/events" className="text-[#ffffff] hover:underline text-xl font-bold">Events</Link>
             </li>
             <li>
-              <a href="teams" className="text-[#ffffff] hover:underline text-xl font-bold">Teams</a>
+              <Link to="/teams" className="text-[#ffffff] hover:underline text-xl font-bold">Teams</Link>
             </li>
             <li>
-              <a href="about" className="text-[#ffffff] hover:underline text-xl font-bold">About</a>
+              <Link to="/about" className="text-[#ffffff] hover:underline text-xl font-bold">About</Link>
             </li>
           </ul>
         </div>
