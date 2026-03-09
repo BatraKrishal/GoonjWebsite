@@ -101,7 +101,7 @@ const HeroSection = () => {
             className="hero-text-scroll"
           >
             <div className="hero-subtitle">
-              <h1>Indian Maximalism </h1>
+              <h1>Echoes of Golden Era </h1>
             </div>
           </div>
 
