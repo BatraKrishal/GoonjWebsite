@@ -4,113 +4,117 @@ import { SplitText } from "gsap/all";
 import { useMediaQuery } from "react-responsive";
 
 const HeroSection = () => {
-  const isMobile = useMediaQuery({
-    query: "(max-width: 768px)",
-  });
-
-  const isTablet = useMediaQuery({
-    query: "(max-width: 1024px)",
-  });
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
 
   useGSAP(() => {
-    const titleSplit = SplitText.create(".hero-title", {
-      type: "chars",
+    let split;
+
+    // 👉 Adaptive SplitText (preserve feel, reduce load)
+    split = SplitText.create(".hero-title", {
+      type: isMobile ? "words" : "chars",
     });
 
     const tl = gsap.timeline({
-      delay: 1,
+      delay: isMobile ? 0.5 : 1,
     });
 
     tl.to(".hero-content", {
       opacity: 1,
       y: 0,
-      ease: "power1.inOut",
+      duration: isMobile ? 0.6 : 1,
+      ease: "power1.out",
     })
       .to(
         ".hero-text-scroll",
         {
-          duration: 1,
+          duration: isMobile ? 0.6 : 1,
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
           ease: "circ.out",
         },
-        "-=0.5",
+        "-=0.4"
       )
       .from(
-        titleSplit.chars,
+        split[isMobile ? "words" : "chars"],
         {
-          yPercent: 200,
-          stagger: 0.02,
+          yPercent: isMobile ? 100 : 200,
+          stagger: isMobile ? 0.05 : 0.02,
+          duration: isMobile ? 0.5 : 0.8,
           ease: "power2.out",
         },
-        "-=0.5",
+        "-=0.4"
       );
 
-    const heroTl = gsap.timeline({
+    // 👉 Scroll animation (same feel, lighter)
+    gsap.to(".hero-container", {
+      rotate: isMobile ? 4 : 7,
+      scale: isMobile ? 0.95 : 0.9,
+      yPercent: isMobile ? 20 : 30,
+      ease: "none",
       scrollTrigger: {
         trigger: ".hero-container",
         start: "1% top",
         end: "bottom top",
-        scrub: true,
+        scrub: isMobile ? 0.8 : true,
       },
     });
-    heroTl.to(".hero-container", {
-      rotate: 7,
-      scale: 0.9,
-      yPercent: 30,
-      ease: "power1.inOut",
-    });
-  });
+
+    return () => {
+      split.revert(); // 🔥 cleanup
+    };
+  }, [isMobile]);
 
   return (
-    <section className="bg-white">
-      <div className="hero-container">
+    <section className="bg-white overflow-hidden">
+      <div className="hero-container relative h-screen w-full">
+        
+        {/* 👉 MOBILE + TABLET IMAGE */}
         {isTablet ? (
-          <>
-            {isMobile && (
-              <img
-                src="/images/hero-img.png"
-                className="absolute bottom-40 size-full object-cover"
-              />
-            )}
-            <img
-              src="/images/hero-img.png"
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 object-auto"
-            />
-          </>
+          <img
+            src="/images/hero-img.png"
+            alt="hero"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            loading="lazy"
+          />
         ) : (
+          // 👉 DESKTOP VIDEO
           <video
             src="/videos/hero-bg.mp4"
             autoPlay
             muted
             playsInline
-            onEnded={(e) => {
-              e.target.pause();
-              e.target.currentTime = e.target.duration;
-            }}
+            preload="none"
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
-        <div className="hero-content opacity-0">
+
+        {/* 👉 CONTENT */}
+        <div className="hero-content opacity-0 translate-y-10 relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+          
           <div className="overflow-hidden">
-            <h1 className="hero-title">Goonj 2k26</h1>
+            <h1 className="hero-title text-4xl p-1 sm:text-5xl md:text-8xl font-bold">
+              Goonj 2k26
+            </h1>
           </div>
+
           <div
             style={{
-              clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
+              clipPath:
+                "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
             }}
             className="hero-text-scroll"
           >
-            <div className="hero-subtitle">
-              <h1>Echoes of Golden Era </h1>
+            <div className="hero-subtitle text-lg sm:text-xl md:text-2xl mt-2">
+              <h1>Echoes of Golden Era</h1>
             </div>
           </div>
 
-          <h2>
+          <h2 className="mt-4 text-sm sm:text-base md:text-lg max-w-xl">
             “Jahan Kala Sirf Dikhti Nahi, Mehsoos Bhi Hoti Hai — Wahi Hai Goonj.”
           </h2>
 
-          <div className="hero-button">
-            <p>Explore</p>
+          <div className="hero-button mt-6">
+            <p className="text-base md:text-lg">Explore</p>
           </div>
         </div>
       </div>
