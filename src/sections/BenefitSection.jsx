@@ -43,13 +43,14 @@ const BenefitSection = () => {
   });
 
   return (
-    <section className="benefit-section"
-    style={{
-          backgroundImage: "url('/images/benefits-bg.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          width: "100%",
-        }}
+    <section
+      className="benefit-section"
+      style={{
+        backgroundImage: "url('/images/benefits-bg.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        width: "100%",
+      }}
     >
       <div className="container mx-auto pt-20">
         <div className="col-center text-white">

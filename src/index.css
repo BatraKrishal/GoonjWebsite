@@ -43,11 +43,13 @@ body::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
 }
 
-
-
 @keyframes lineScroll {
-  0% { top: -100% }
-  100% { top: 100% }
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
 }
 
 @layer utilities {
@@ -288,7 +290,7 @@ body::-webkit-scrollbar {
   .safe-area-bottom {
     padding-bottom: env(safe-area-inset-bottom);
   }
-  
+
   @supports (padding: max(0px)) {
     .safe-area-pad-x {
       padding-left: max(1rem, env(safe-area-inset-left));
@@ -301,17 +303,17 @@ body::-webkit-scrollbar {
   html {
     font-size: 14px;
   }
-  
+
   .general-title {
     font-size: 2.5rem;
     line-height: 1.1;
     letter-spacing: -0.02em;
   }
-  
+
   .hero-container .hero-content .hero-title {
     font-size: 2.8rem;
   }
-  
+
   .hero-container .hero-content .hero-text-scroll h1 {
     font-size: 2.8rem;
   }
@@ -321,15 +323,15 @@ body::-webkit-scrollbar {
   * {
     -webkit-tap-highlight-color: transparent;
   }
-  
-  button, 
+
+  button,
   .hero-button,
   .social-btn,
   a {
     min-height: 44px;
     min-width: 44px;
   }
-  
+
   .social-btn {
     display: flex;
     align-items: center;
@@ -338,40 +340,56 @@ body::-webkit-scrollbar {
 }
 
 @media (max-width: 768px) {
+  .message-content {
+    min-height: 110dvh;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .message-content .msg-wrapper {
+    gap: 5rem;
+  }
+
   .message-content .msg-wrapper h1:first-of-type,
   .message-content .msg-wrapper h1:last-of-type {
-    font-size: 1.75rem;
-    line-height: 1.2;
+    font-size: 3rem;
+    line-height: 1.1;
     padding: 0 1rem;
+    max-width: 100%;
   }
-  
+
+  .message-content p {
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+
   .flavor-section .slider-wrapper .flavors .drinks {
     height: 60vh;
   }
-  
+
   .testimonials-section {
     height: 100dvh;
   }
-  
+
   .testimonials-section .pin-box {
     bottom: 20vh;
   }
-  
+
   .footer-section .social-btn {
     width: 48px;
     height: 48px;
   }
-  
+
   .benefit-section .vd-pin-section {
     min-height: 60vh;
   }
-  
+
   .nutrition-section .nutrition-box .list-wrapper {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
   }
-  
+
   .nutrition-section .nutrition-box .list-wrapper .spacer-border {
     display: none;
   }

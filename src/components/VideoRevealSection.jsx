@@ -8,23 +8,26 @@ gsap.registerPlugin(ScrollTrigger);
 const VideoRevealSection = () => {
   const sectionRef = useRef();
 
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "+=150%",
-        scrub: 1,
-        pin: true,
-      },
-    });
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=150%",
+          scrub: 1,
+          pin: true,
+        },
+      });
 
-    tl.fromTo(
-      ".video-mask",
-      { clipPath: "circle(8% at 50% 50%)" },
-      { clipPath: "circle(100% at 50% 50%)", ease: "power2.out" }
-    );
-  }, { scope: sectionRef });
+      tl.fromTo(
+        ".video-mask",
+        { clipPath: "circle(8% at 50% 50%)" },
+        { clipPath: "circle(100% at 50% 50%)", ease: "power2.out" },
+      );
+    },
+    { scope: sectionRef },
+  );
 
   return (
     <section
@@ -106,7 +109,6 @@ const VideoRevealSection = () => {
               />
             </div>
           </div>
-
         </div>
       </div>
     </section>

@@ -28,14 +28,14 @@ const TestimonialSection = () => {
         {
           xPercent: 25,
         },
-        "<"
+        "<",
       )
       .to(
         ".testimonials-section .third-title",
         {
           xPercent: -50,
         },
-        "<"
+        "<",
       );
 
     const pinTl = gsap.timeline({
@@ -66,12 +66,15 @@ const TestimonialSection = () => {
   };
 
   return (
-    <section className="testimonials-section" style={{
-          backgroundImage: "url('/images/testimonials-bg.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          width: "100vw",
-        }}>
+    <section
+      className="testimonials-section"
+      style={{
+        backgroundImage: "url('/images/testimonials-bg.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        width: "100vw",
+      }}
+    >
       <div className="absolute size-full flex flex-col items-center pt-[1vh]">
         <h1 className="text-black first-title">Higlights</h1>
         <h1 className="text-white sec-title">Of</h1>

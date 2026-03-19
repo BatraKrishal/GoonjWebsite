@@ -65,12 +65,15 @@ const NutritionSection = () => {
   });
 
   return (
-    <section className="nutrition-section bg-[url('/images/nutrition-bg.png')] bg-cover bg-center relative" style={{
-          backgroundImage: "url('/images/nutrition-bg.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          width: "100vw",
-        }}>
+    <section
+      className="nutrition-section bg-[url('/images/nutrition-bg.png')] bg-cover bg-center relative"
+      style={{
+        backgroundImage: "url('/images/nutrition-bg.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        width: "100vw",
+      }}
+    >
       {/* <img
         src="/images/slider-dip.png"
         alt=""
@@ -101,7 +104,9 @@ const NutritionSection = () => {
         <div className="flex md:justify-center items-center translate-y-5">
           <div className="md:max-w-xs max-w-md">
             <p className="text-lg md:text-right text-balance font-paragraph">
-              Goonj brings together music, dance, art, and culture, creating a vibrant celebration of talent, creativity, and unforgettable memories.
+              Goonj brings together music, dance, art, and culture, creating a
+              vibrant celebration of talent, creativity, and unforgettable
+              memories.
             </p>
           </div>
         </div>
