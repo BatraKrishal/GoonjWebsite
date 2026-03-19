@@ -4,9 +4,9 @@
 
 @font-face {
   font-family: "ProximaNova, sans-serif";
-  src: url("/fonts/ProximaNova-Regular.otf");
+  src: url("/fonts/ProximaNova-Regular.woff2") format("woff2");
+  font-display: swap;
 }
-
 @theme {
   --color-black: #222123;
   --color-main-bg: #ffffff;
