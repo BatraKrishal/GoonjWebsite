@@ -46,7 +46,7 @@ const BenefitSection = () => {
     <section
       className="benefit-section"
       style={{
-        backgroundImage: "url('/images/benefits-bg.png')",
+        backgroundImage: "url('/images/Home/benefitsBg.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         width: "100%",

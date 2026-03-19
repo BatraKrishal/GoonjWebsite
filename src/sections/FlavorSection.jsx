@@ -3,11 +3,11 @@ import FlavorSlider from "../components/FlavorSlider";
 
 const FlavorSection = () => {
   return (
-    <section className="flavor-section bg-[url('/images/bg-red-mob.png')]">
+    <section className="flavor-section bg-[url('/images/Home/mobileFlavourBg.webp')] bg-cover lg:bg-white">
       <div
         className="flavor-bg-fixed hidden md:block absolute top-0 left-0 h-[102vh]"
         style={{
-          backgroundImage: "url('/images/red-bg.png')",
+          backgroundImage: "url('/images/Home/flavourBg.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           width: "100vw",

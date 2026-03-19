@@ -69,7 +69,7 @@ const TestimonialSection = () => {
     <section
       className="testimonials-section"
       style={{
-        backgroundImage: "url('/images/testimonials-bg.png')",
+        backgroundImage: "url('/images/Home/testimonialsBg.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         width: "100vw",

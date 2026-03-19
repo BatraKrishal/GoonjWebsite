@@ -66,9 +66,9 @@ const NutritionSection = () => {
 
   return (
     <section
-      className="nutrition-section bg-[url('/images/nutrition-bg.png')] bg-cover bg-center relative"
+      className="nutrition-section  relative"
       style={{
-        backgroundImage: "url('/images/nutrition-bg.png')",
+        backgroundImage: "url('/images/Home/nutritionBg.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         width: "100vw",

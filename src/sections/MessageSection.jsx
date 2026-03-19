@@ -79,7 +79,7 @@ const MessageSection = () => {
   return (
     <section
       ref={container}
-      className="message-content bg-[url('/images/message-bg.png')]  bg-cover bg-top"
+      className="message-content bg-[url('/images/Home/messageBg.webp')]  bg-cover bg-top"
     >
       <div className="container mx-auto flex-center py-28 relative">
         <div className="w-full h-full">

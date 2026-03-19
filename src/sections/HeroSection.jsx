@@ -71,7 +71,7 @@ const HeroSection = () => {
         {/* 👉 MOBILE + TABLET IMAGE */}
         {isTablet ? (
           <img
-            src="/images/hero-img.png"
+            src="/images/Home/mobileHero.webp"
             alt="hero"
             className="absolute inset-0 w-full h-full object-cover object-center"
             loading="lazy"
