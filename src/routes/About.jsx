@@ -19,7 +19,7 @@ const contactChannels = [
   },
 ];
 
-export const About = () => {
+const About = () => {
   return (
     <main className="bg-[#f6dfc6] text-[#523122]">
       <NavBar />
@@ -237,3 +237,5 @@ export const About = () => {
     </main>
   );
 };
+
+export default About; 

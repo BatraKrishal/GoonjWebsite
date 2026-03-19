@@ -12,7 +12,7 @@ import gsap from "gsap";
 import { ScrollSmoother, ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-export const Home = () => {
+const Home = () => {
    useGSAP(() => {
     ScrollSmoother.create({
       smooth: 3,
@@ -49,3 +49,5 @@ export const Home = () => {
     </main>
   )
 }
+
+export default Home;

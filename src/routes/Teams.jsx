@@ -9,7 +9,7 @@ import TiltedCard from "../components/Teams/TiltedCard";
 import TiltedCardGrid from "../components/Teams/TiltedCardGrid";
 import FooterSection from "../sections/FooterSection";
 
-export const Teams = () => {
+const Teams = () => {
   useGSAP(() => {
     const titleSplit = SplitText.create(".hero-title", {
       type: "chars",
@@ -103,3 +103,5 @@ export const Teams = () => {
     </div>
   );
 };
+
+export default Teams;

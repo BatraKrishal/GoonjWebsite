@@ -46,7 +46,7 @@ const pairOrder = [
   ["fandom-trivia", null],
 ];
 
-export const Events = () => {
+const Events = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [activeEvent, setActiveEvent] = useState(null);
   const focusedSlug = searchParams.get("event");
@@ -151,3 +151,5 @@ export const Events = () => {
     </div>
   );
 };
+
+export default Events;
